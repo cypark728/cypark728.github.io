@@ -60,6 +60,15 @@ pcy로 접속하면 그 안에 아무것도 없을테니 html폴더를 만들고
 
 이러면 성공 한 것이다. 
 
+같은 작업을 아까 만들어둔 다른 유저인 jinu에서도 해 보았다. 
+여기선 ( https://github.com/helfi92/studorlio ) 링크를 사용하였다. 
+http://jinu.com/studorlio/ 에 접속해보자.
+
+
+![image](https://user-images.githubusercontent.com/48200520/82812746-a2ccbe00-9ece-11ea-9a00-f384dc18c8c4.png)
+
+이렇게 나오면 성공한 것이다. 두번째 유저도 성공하였다. 
+
 # 웹 사이트 수정하기
 
 지금은 git hub에 올라온 것을 그대로 올려 보았지만 이것을 수정해서 사이트를 내 식대로 고쳐보자.
@@ -68,6 +77,14 @@ index.html 파일을 수정해서 내 이름이 나오게 해 보았다.
 
 ![image](https://user-images.githubusercontent.com/48200520/82812482-0aced480-9ece-11ea-839b-2751825d4dc2.png)
 
-Park ChanYoung가 중앙에 뜬걸 확인 할 수 있다. (내이름이다) 이로서 완벽하게 완성하였다!
+Park ChanYoung가 중앙에 뜬걸 확인 할 수 있다. (내이름이다) 
+
+여기서도 두번째 유저인 jinu도 수정해 보겠다. 
+똑같이 index.html파일을 수정한후 add - commit - push 를 해보았다.
+
+![image](https://user-images.githubusercontent.com/48200520/82813604-54b8ba00-9ed0-11ea-99bf-0245267973bb.png)
+
+My name is Park ChanYoung 가 뜬것을 볼 수 있다. 완벽히 수정되었다. 
+
 
 
