@@ -62,4 +62,12 @@ pcy로 접속하면 그 안에 아무것도 없을테니 html폴더를 만들고
 
 # 웹 사이트 수정하기
 
+지금은 git hub에 올라온 것을 그대로 올려 보았지만 이것을 수정해서 사이트를 내 식대로 고쳐보자.
+index.html 파일을 수정해서 내 이름이 나오게 해 보았다.
+
+
+![image](https://user-images.githubusercontent.com/48200520/82812482-0aced480-9ece-11ea-839b-2751825d4dc2.png)
+
+Park ChanYoung가 중앙에 뜬걸 확인 할 수 있다. (내이름이다) 이로서 완벽하게 완성하였다!
+
 
