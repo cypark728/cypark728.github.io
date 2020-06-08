@@ -1,18 +1,82 @@
 ---
-title:  "[내 웹서버 만들기 (5)] 라즈베리파이에 CMS 구축해 보기 (2) - DB 시스템 설치 / 사용법"
-excerpt: "라즈베리파이에 CMS를 구축해 보자.."
-toc: true
-toc_sticky: true
-toc_label: "페이지 주요 목차"
+title:  "CMS 구축해보기 with DB"
+excerpt: "라즈베리파이에 CMS를 구축해보자......"
 
-categories:
-  - study
-tags:
-  - web
-  - raspberry-pi
-  - linux
-  - cms
-  - db
-  - mysql
-  - mariadb
 ---
+
+
+이번에는 db를 먼저 구축하고 db를 cms에 연결해볼 것이다. 
+오늘은 mariaDB를 사용할 것이다. 
+
+#mariaDB설치
+
+```
+# apt-get -y install mariadb-server
+```
+
+이후 2가지 파일을 수정해야 한다. 
+
+```
+# vi /etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+![image](https://user-images.githubusercontent.com/48200520/84038550-0d0b5580-a9db-11ea-9c5b-e96b2b4b9a32.png)
+
+```
+# vi /etc/mysql/mariadb.conf.d/50-client.cnf
+```
+
+![image](https://user-images.githubusercontent.com/48200520/84038660-290ef700-a9db-11ea-8e11-c366bc93619c.png)
+
+이제 root로 maraiDB에 접속해준다. 
+```
+# mysql -u root -p
+```
+
+# mariaDB 이용하기
+
+새로운 db를 만들것이다. 이름은 userdb로 할 것이다. 
+
+```
+> create database userdb;
+```
+
+이제 userdb에 이용자를 만들자 아이디는 db_pcy 비밀번호는 1234로 설정 할 것이다. 
+
+```
+> grant all privileges on userdb.* to 'db_pcy'@'localhost' identified by '1234';
+> flush privileges;
+```
+
+# 채팅 웹 페이지 만들기
+
+이제 설정한 db를 이용하여 채팅 웹 페이지를 만들 것이다. 
+채팅은 https://github.com/cypark728/Chat-Room.git 이것을 이용할 것이다. 
+
+super user 로 들어가 아래와 같이 수정해준다. 
+```
+# vi /etc/nginx/sites-available/jinu.com
+```
+![image](https://user-images.githubusercontent.com/48200520/84039610-763f9880-a9dc-11ea-8a6e-df8c5d5b3563.png)
+
+이제 다시 jinu로 접속하여 위에 적은 링크를 클론해준다. (html 디렉토리 안에 해준다)
+
+```
+chanhk@chanhkpi:~/html $ git clone https://github.com/cypark728/Chat-Room.git
+```
+
+이후 아까 설정한 대로 db정보를 수정한다. 
+```
+$ vi Chat-Room/connection.php
+```
+![image](https://user-images.githubusercontent.com/48200520/84039869-d7676c00-a9dc-11ea-8933-430a1d961255.png)
+
+이제 db테이블을 생성하자 
+```
+$ mysql -u db_chanhk -p userdb < Chat-Room/database/chat.sql
+```
+
+이후 jinu.com/Chat-Room 에 접속하면 잘 된것을 확인 할 수 있다. 
+
+![image](https://user-images.githubusercontent.com/48200520/84039987-febe3900-a9dc-11ea-875c-3165f53746df.png)
+
